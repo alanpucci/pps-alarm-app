@@ -20,8 +20,8 @@ const LoginController:FC<LoginControllerProps> = ({control,handleSubmit, handleR
   return (
     <StyledView >
       <View>
-        <ControlledInput autoCapitalize='sentences' name="email" placeholder='Email' control={control} />
-        <ControlledPasswordInput autoCapitalize='none' name="password" placeholder='Password' control={control} />
+        <ControlledInput autoCapitalize='sentences' name="email" placeholder='Correo electrónico' control={control} />
+        <ControlledPasswordInput autoCapitalize='none' name="password" placeholder='Contraseña' control={control} />
       </View>
       <AwesomeButton backgroundDarker="#b40000" textSize={22} textColor="white" backgroundColor="#f41d1d" type="primary" rounded height={60} onPress={handleSubmit}>Ingresar</AwesomeButton>
       <StyledRoundedButtonContainer>

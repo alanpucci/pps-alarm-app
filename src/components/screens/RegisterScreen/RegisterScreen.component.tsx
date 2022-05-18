@@ -43,7 +43,7 @@ const RegisterScreen:FC<RegisterScreenProps> = ({navigation}) => {
 	return (
 		<StyledView>
             {data.loading && <Spinner />}
-            <Logo title="Registro" subtitle="Ingresa tus credenciales y crea tu cuenta" />
+            <Logo title="Registro" subtitle="Ingresá tus credenciales y crea tu cuenta" />
             <RegisterController handleSubmit={handleSubmit(handleSignUp)} control={control} />
         </StyledView>
 	);

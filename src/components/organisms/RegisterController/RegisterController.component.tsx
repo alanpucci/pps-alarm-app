@@ -15,7 +15,7 @@ interface LoginControllerProps{
 const RegisterController:FC<LoginControllerProps> = ({ control,handleSubmit}) => {
   return (
     <StyledView> 
-      <ControlledInput autoCapitalize='none' name="email" placeholder='Email' control={control} />
+      <ControlledInput autoCapitalize='none' name="email" placeholder='Correo electrónico' control={control} />
       <ControlledPasswordInput autoCapitalize='none' name="password" placeholder='Contraseña' control={control} />
       <ControlledPasswordInput autoCapitalize='none' name="passwordRepeat" placeholder='Repetir contraseña' control={control} />
       <AwesomeButton backgroundDarker="#b40000" textSize={22} textColor="white" backgroundColor="#f41d1d" type="primary" rounded height={60} onPress={handleSubmit}>Registrar</AwesomeButton>

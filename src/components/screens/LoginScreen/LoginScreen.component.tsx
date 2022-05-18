@@ -47,7 +47,7 @@ const LoginScreen:FC<LoginScreenProps> = ({navigation}) => {
 	return (
 		<StyledView colors={['#bfe9ff', '#9796f0']} end={{ x: 1, y: 0.6 }}>
             {data.loading && <Spinner />}
-            <Logo title="Hola," subtitle="ingresa tus datos para acceder a la alarma" />
+            <Logo title="Hola," subtitle="ingresá tus datos para acceder a la alarma" />
             <LoginController fastSignIn={handleFastSignIn} handleSubmit={handleSubmit(handleSignIn)} handleRegister={handleRegister} control={control} />
             <FlashMessage style={{elevation:1000,zIndex:1000}} position="top" />
         </StyledView>

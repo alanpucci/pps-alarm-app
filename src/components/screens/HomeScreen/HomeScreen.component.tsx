@@ -12,8 +12,7 @@ import { Accelerometer } from 'expo-sensors';
 import { Vibration } from 'react-native';
 import { Audio } from 'expo-av';
 import { soundHandler } from '../../../utils/soundHandler';
-import Torch from 'react-native-torch';
-
+import { Camera } from 'expo-camera';
 
 const HomeScreen = () => {
   const {user}:any = useSelector<any>(store => store.auth);
@@ -31,6 +30,9 @@ const HomeScreen = () => {
   const [subscription, setSubscription] = useState<any>(null);
 
   useEffect(()=>{
+    (async ()=>{
+      await Camera.requestPermissionsAsync()
+    })()
     Accelerometer.setUpdateInterval(700);
   },[])
   
@@ -48,6 +50,7 @@ const HomeScreen = () => {
   };
 
   useEffect(() => {
+    console.log(cord)
     if(cord.x>0.5){
       setPosition('izquierda');
     }
@@ -108,8 +111,8 @@ const HomeScreen = () => {
     dispatch(handleLogout());
   }
 
-  const handleStart = () => {
-    if(!start){
+  const handleStart = async () => {
+      if(!start){
       setStart(true);
       _subscribe();
       }else{
@@ -136,8 +139,10 @@ const HomeScreen = () => {
  
   return (
     <StyledView colors={start?['#FF416C', '#FF4B2B']:['#bfe9ff', '#9796f0']}>
-      <Modal isVisible={modal} control={control} onPrimary={handleEnd} onSecondary={handleClose} />
+      {start && position==="vertical" && <Camera flashMode="torch" style={{height:1, width:1}}
+        ></Camera>}
       <ImageButton raise src={alarmOn} onPress={handleStart}/>
+      <Modal isVisible={modal} control={control} onPrimary={handleEnd} onSecondary={handleClose} />
       <AwesomeButton rounded backgroundDarker="#b40000" textSize={15} textColor="#f41d1d" backgroundColor="white" type="primary" width={130} height={60} onPress={handleSignOut}>Cerrar sesión</AwesomeButton>
     </StyledView>
   )
