@@ -51,6 +51,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     console.log(cord)
+    console.log(position)
     if(cord.x>0.5){
       setPosition('izquierda');
     }
@@ -97,6 +98,7 @@ const HomeScreen = () => {
             setSound(sound);
             await sound.playAsync()
           })()
+          break;
         case 'vertical':
           (async ()=>{
             const {sound} = await Audio.Sound.createAsync(soundHandler('mama'));
